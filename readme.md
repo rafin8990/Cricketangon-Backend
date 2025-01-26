@@ -25,8 +25,8 @@
    git clone https://github.com/rafin8990/Cricketangon-Backend.git
 ```
 2. **Go inside Project**:
- ```bash
-  cd Cricketangon-backend
+   ```bash
+cd Cricketangon-backend
 ```
 3. ** Install Dependencies"
    ```bash
