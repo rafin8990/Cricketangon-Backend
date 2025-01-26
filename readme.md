@@ -24,7 +24,7 @@
    ```bash
    git clone https://github.com/rafin8990/Cricketangon-Backend.git
 ```
-2. ** Go inside Project**:
+2. **Go inside Project**:
  ```bash
   cd Cricketangon-backend
 ```
