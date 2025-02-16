@@ -11,26 +11,22 @@ const path_1 = __importDefault(require("path"));
 const globalErrorHandler_1 = __importDefault(require("./app/middlewares/globalErrorHandler"));
 const routes_1 = __importDefault(require("./app/routes"));
 const app = (0, express_1.default)();
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:3000',
+    'https://cricketangon.com',
+    'http://cricketangon.com',
+    'https://www.cricketangon.com',
+    'http://www.cricketangon.com',
+    'https://cricketangon-client.vercel.app',
+    'http://cricketangon-client.vercel.app',
+];
 app.use((0, cors_1.default)({
-    origin: [
-        "http://localhost:5173",
-        "http://localhost:5173/",
-        "http://localhost:5174",
-        "http://localhost:5174/",
-        "http://localhost:3000",
-        "http://localhost:3000/",
-        "https://cricketangon.com",
-        "https://cricketangon.com/",
-        "https://cricketangon.com",
-        "https://cricketangon.com/",
-        "http://cricketangon.com",
-        "http://cricketangon.com/",
-        "https://cricketangon-client.vercel.app",
-        "https://cricketangon-client.vercel.app/",
-        "http://cricketangon-client.vercel.app",
-        "http://cricketangon-client.vercel.app/",
-    ],
+    origin: allowedOrigins,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
 app.use((0, cookie_parser_1.default)());
 //parser

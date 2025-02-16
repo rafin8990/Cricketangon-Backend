@@ -7,27 +7,24 @@ import globalErrorHandler from './app/middlewares/globalErrorHandler'
 import router from './app/routes'
 
 const app: Application = express()
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:3000',
+  'https://cricketangon.com',
+  'http://cricketangon.com',
+  'https://www.cricketangon.com',
+  'http://www.cricketangon.com',
+  'https://cricketangon-client.vercel.app',
+  'http://cricketangon-client.vercel.app',
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5173/",
-      "http://localhost:5174",
-      "http://localhost:5174/",
-      "http://localhost:3000",
-      "http://localhost:3000/",
-      "https://cricketangon.com",
-      "https://cricketangon.com/",
-      "https://cricketangon.com",
-      "https://cricketangon.com/",
-      "http://cricketangon.com",
-      "http://cricketangon.com/",
-      "https://cricketangon-client.vercel.app",
-      "https://cricketangon-client.vercel.app/",
-      "http://cricketangon-client.vercel.app",
-      "http://cricketangon-client.vercel.app/",
-    ],
+    origin: allowedOrigins,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   })
 );
 app.use(cookieParser())
@@ -58,3 +55,5 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next()
 })
 export default app
+
+
